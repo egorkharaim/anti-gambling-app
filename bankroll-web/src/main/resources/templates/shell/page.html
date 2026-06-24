@@ -10,7 +10,11 @@
     Menu
   </button>
 
-  <div id="sidebar-nav" th:replace="~{fragments/sidebar :: sidebar(${activeNav})}"></div>
+  <button class="theme-toggle" type="button" aria-pressed="false">
+    Dark theme
+  </button>
+
+  <div th:replace="~{fragments/sidebar :: sidebar(${activeNav})}"></div>
 
   <main class="app-main">
     <header class="hero-card">

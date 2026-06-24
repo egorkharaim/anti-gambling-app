@@ -58,6 +58,8 @@ body {
   grid-template-columns: minmax(250px, 290px) 1fr;
   min-height: 100vh;
   overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .shell-backdrop {
@@ -299,6 +301,20 @@ body {
   box-shadow: var(--shadow);
 }
 
+.theme-toggle {
+  position: fixed;
+  right: 5.9rem;
+  top: 1rem;
+  z-index: 4;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--text);
+  font: inherit;
+  box-shadow: var(--shadow);
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -311,6 +327,17 @@ body {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 1080px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -318,6 +345,10 @@ body {
 
   .mobile-nav-toggle {
     display: inline-flex;
+  }
+
+  .theme-toggle {
+    right: 5.7rem;
   }
 
   .app-sidebar {
@@ -344,6 +375,11 @@ body {
 }
 
 @media (max-width: 640px) {
+  .theme-toggle {
+    right: 5.3rem;
+    padding-inline: 0.9rem;
+  }
+
   .hero-card,
   .panel {
     padding: 1.1rem;
