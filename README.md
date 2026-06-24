@@ -34,8 +34,10 @@ Bankroll Discipline Manager — персональное web-приложени�
 - Maven
 - Spring MVC и REST API
 - HTML, CSS и JavaScript
-- SQLite
+- MySQL
 - Flyway
+- Docker Compose
+- Testcontainers for MySQL
 - JUnit 5, AssertJ, Mockito
 - Maven Checkstyle
 - GitHub Actions
