@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class MoneyTest {
 
@@ -36,6 +37,16 @@ class MoneyTest {
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessageContaining("invalid scale")
         .hasMessageContaining("PLN");
+  }
+
+  @ParameterizedTest
+  @ValueSource(strings = {"abc", "12,50", ""})
+  void shouldRejectMalformedAmountWithStableMessage(String amount) {
+    assertThatThrownBy(() -> Money.of(amount, PLN))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessage(
+            "Invalid monetary amount: expected a decimal number using '.' as separator")
+        .hasCauseInstanceOf(NumberFormatException.class);
   }
 
   @Test

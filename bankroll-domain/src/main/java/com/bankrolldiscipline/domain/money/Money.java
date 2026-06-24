@@ -31,9 +31,21 @@ public record Money(BigDecimal amount, CurrencyCode currency) implements Compara
     }
   }
 
+  /**
+   * Parses an exact decimal amount using a dot as the decimal separator.
+   *
+   * @throws NullPointerException if the amount is {@code null}
+   * @throws IllegalArgumentException if the amount is not a valid decimal number
+   */
   public static Money of(String amount, CurrencyCode currency) {
     Objects.requireNonNull(amount, "Money amount must not be null");
-    return new Money(new BigDecimal(amount), currency);
+    try {
+      return new Money(new BigDecimal(amount), currency);
+    } catch (NumberFormatException exception) {
+      throw new IllegalArgumentException(
+          "Invalid monetary amount: expected a decimal number using '.' as separator",
+          exception);
+    }
   }
 
   public static Money zero(CurrencyCode currency) {
