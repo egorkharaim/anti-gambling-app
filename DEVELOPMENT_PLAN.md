@@ -59,7 +59,7 @@ bankroll-manager
 ├── bankroll-application
 │   └── сценарии использования и интерфейсы репозиториев
 ├── bankroll-infrastructure
-│   └── MySQL, Flyway и реализации репозиториев
+│   └── MySQL, Liquibase и реализации репозиториев
 └── bankroll-web
     └── Spring Boot, REST-контроллеры, HTML, CSS и JavaScript
 ```
@@ -255,8 +255,6 @@ usedLossLimit = sum(sessionLoss for all sessions in period)
 - Добавить Maven Wrapper.
 - Подключить Checkstyle.
 - Настроить `mvn clean verify` в GitHub Actions.
-- Добавить Docker Compose для локальной MySQL и `.env.example` без настоящих
-  паролей.
 - Добавить общий обработчик ошибок и health endpoint.
 - Добавить базовый README.
 
@@ -304,7 +302,10 @@ usedLossLimit = sum(sessionLoss for all sessions in period)
 
 ### PR 5 — Infrastructure: database and repositories
 
-- Подключить MySQL, JDBC driver и Flyway.
+- Подключить MySQL, JDBC driver и Liquibase.
+- Добавить Docker Compose для локальной MySQL и `.env.example` без настоящих
+  паролей.
+- Настроить datasource через переменные окружения и подключить master changelog.
 - Создать миграции таблиц профиля, планов и корректировок лимита.
 - Реализовать repository-интерфейсы в application-модуле.
 - Реализовать MySQL-адаптеры в infrastructure-модуле.
