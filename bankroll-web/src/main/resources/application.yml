@@ -2,4 +2,4 @@ spring:
   application:
     name: bankroll-manager
   thymeleaf:
-    check-template-location: false
+    cache: false

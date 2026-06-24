@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<aside id="sidebar-nav" class="app-sidebar" th:fragment="sidebar(activeNav)">
+  <div class="brand-block">
+    <div class="brand-mark">BD</div>
+    <div>
+      <p class="brand-kicker">Bankroll Discipline</p>
+      <h1>Manager</h1>
+    </div>
+  </div>
+
+  <nav class="app-nav" aria-label="Primary">
+    <a th:href="@{/}"
+       th:classappend="${activeNav == 'dashboard'} ? ' is-active' : ''"
+       th:attr="aria-current=${activeNav == 'dashboard'} ? 'page' : null">
+      <span>Dashboard</span>
+      <small>Overview and alerts</small>
+    </a>
+    <a th:href="@{/profile}"
+       th:classappend="${activeNav == 'profile'} ? ' is-active' : ''"
+       th:attr="aria-current=${activeNav == 'profile'} ? 'page' : null">
+      <span>Profile</span>
+      <small>Income and limits</small>
+    </a>
+    <a th:href="@{/plans}"
+       th:classappend="${activeNav == 'plans'} ? ' is-active' : ''"
+       th:attr="aria-current=${activeNav == 'plans'} ? 'page' : null">
+      <span>Plans</span>
+      <small>Weekly and monthly</small>
+    </a>
+    <a th:href="@{/sessions}"
+       th:classappend="${activeNav == 'sessions'} ? ' is-active' : ''"
+       th:attr="aria-current=${activeNav == 'sessions'} ? 'page' : null">
+      <span>Sessions</span>
+      <small>Track outcomes</small>
+    </a>
+    <a th:href="@{/calendar}"
+       th:classappend="${activeNav == 'calendar'} ? ' is-active' : ''"
+       th:attr="aria-current=${activeNav == 'calendar'} ? 'page' : null">
+      <span>Calendar</span>
+      <small>Discipline patterns</small>
+    </a>
+    <a th:href="@{/statistics}"
+       th:classappend="${activeNav == 'statistics'} ? ' is-active' : ''"
+       th:attr="aria-current=${activeNav == 'statistics'} ? 'page' : null">
+      <span>Statistics</span>
+      <small>Period analytics</small>
+    </a>
+  </nav>
+
+  <section class="sidebar-note">
+    <p class="sidebar-note-label">Current phase</p>
+    <p>Shell is live. Domain contracts plug in next without reworking the UI frame.</p>
+  </section>
+</aside>
+</body>
+</html>

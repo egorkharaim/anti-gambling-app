@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: documentHead(${pageTitle})}"></head>
+<body>
+<div class="app-shell" data-theme="light">
+  <div class="shell-backdrop shell-backdrop-primary"></div>
+  <div class="shell-backdrop shell-backdrop-secondary"></div>
+
+  <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="sidebar-nav">
+    Menu
+  </button>
+
+  <button class="theme-toggle" type="button" aria-pressed="false">
+    Dark theme
+  </button>
+
+  <div th:replace="~{fragments/sidebar :: sidebar(${activeNav})}"></div>
+
+  <main class="app-main">
+    <header class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow" th:text="${pageEyebrow}">Today at a glance</p>
+        <h2 th:text="${pageTitle}">Discipline Dashboard</h2>
+        <p class="hero-description" th:text="${pageDescription}">
+          Placeholder copy for the first application shell.
+        </p>
+      </div>
+
+      <div class="hero-metrics">
+        <article>
+          <span class="metric-label">Foundation</span>
+          <strong>Shell ready</strong>
+          <p>Navigation, responsive layout, and theme support are in place.</p>
+        </article>
+        <article>
+          <span class="metric-label">Next integration</span>
+          <strong>Use case wiring</strong>
+          <p>Pages are waiting for stable commands, results, and validation flows.</p>
+        </article>
+      </div>
+    </header>
+
+    <section class="content-grid">
+      <article class="panel panel-emphasis">
+        <div class="panel-header">
+          <p class="panel-kicker">Build direction</p>
+          <h3>UI shell before business binding</h3>
+        </div>
+        <p>
+          This layout deliberately avoids fake financial calculations. It is here to host the real
+          output of domain and application code once those contracts are agreed.
+        </p>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <p class="panel-kicker">What is safe now</p>
+          <h3>Independent web work</h3>
+        </div>
+        <ul class="panel-list">
+          <li>Template composition and navigation</li>
+          <li>Responsive layout and accessibility polish</li>
+          <li>Form structure without business submission</li>
+          <li>Visual states for alerts, limits, and empty data</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <div class="panel-header">
+          <p class="panel-kicker">What waits for contracts</p>
+          <h3>Domain-driven integration</h3>
+        </div>
+        <ul class="panel-list">
+          <li>Money parsing and validation messages</li>
+          <li>Plan creation and active-limit changes</li>
+          <li>Session lifecycle actions and summaries</li>
+          <li>Calendar and statistics use case results</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</div>
+
+<script th:src="@{/js/app-shell.js}"></script>
+</body>
+</html>
