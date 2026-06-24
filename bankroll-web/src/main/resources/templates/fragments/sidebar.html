@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<aside class="app-sidebar" th:fragment="sidebar(activeNav)">
+  <div class="brand-block">
+    <div class="brand-mark">BD</div>
+    <div>
+      <p class="brand-kicker">Bankroll Discipline</p>
+      <h1>Manager</h1>
+    </div>
+  </div>
+
+  <nav class="app-nav" aria-label="Primary">
+    <a th:href="@{/}"
+       th:classappend="${activeNav == 'dashboard'} ? ' is-active' : ''">
+      <span>Dashboard</span>
+      <small>Overview and alerts</small>
+    </a>
+    <a th:href="@{/profile}"
+       th:classappend="${activeNav == 'profile'} ? ' is-active' : ''">
+      <span>Profile</span>
+      <small>Income and limits</small>
+    </a>
+    <a th:href="@{/plans}"
+       th:classappend="${activeNav == 'plans'} ? ' is-active' : ''">
+      <span>Plans</span>
+      <small>Weekly and monthly</small>
+    </a>
+    <a th:href="@{/sessions}"
+       th:classappend="${activeNav == 'sessions'} ? ' is-active' : ''">
+      <span>Sessions</span>
+      <small>Track outcomes</small>
+    </a>
+    <a th:href="@{/calendar}"
+       th:classappend="${activeNav == 'calendar'} ? ' is-active' : ''">
+      <span>Calendar</span>
+      <small>Discipline patterns</small>
+    </a>
+    <a th:href="@{/statistics}"
+       th:classappend="${activeNav == 'statistics'} ? ' is-active' : ''">
+      <span>Statistics</span>
+      <small>Period analytics</small>
+    </a>
+  </nav>
+
+  <section class="sidebar-note">
+    <p class="sidebar-note-label">Current phase</p>
+    <p>Shell is live. Domain contracts plug in next without reworking the UI frame.</p>
+  </section>
+</aside>
+</body>
+</html>
