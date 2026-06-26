@@ -1,16 +1,16 @@
-const shell = document.querySelector(".app-shell");
+const appShell = document.querySelector(".app-shell");
 const navToggle = document.querySelector(".mobile-nav-toggle");
 const themeToggle = document.querySelector(".theme-toggle");
 const darkTheme = "dark";
 const lightTheme = "light";
 
 function applyTheme(theme) {
-  if (!shell) {
+  if (!appShell) {
     return;
   }
 
-  const nextTheme = theme === darkTheme ? darkTheme : lightTheme;
-  shell.dataset.theme = nextTheme;
+  const nextTheme = theme === lightTheme ? lightTheme : darkTheme;
+  appShell.dataset.theme = nextTheme;
 
   if (themeToggle) {
     const isDark = nextTheme === darkTheme;
@@ -19,31 +19,31 @@ function applyTheme(theme) {
   }
 }
 
-if (shell) {
-  const storedTheme = window.localStorage.getItem("bdm-theme");
-  applyTheme(storedTheme);
+if (appShell) {
+  applyTheme(window.localStorage.getItem("bdm-theme"));
 }
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    const nextTheme = shell?.dataset.theme === darkTheme ? lightTheme : darkTheme;
+    const nextTheme = appShell?.dataset.theme === darkTheme ? lightTheme : darkTheme;
     applyTheme(nextTheme);
     window.localStorage.setItem("bdm-theme", nextTheme);
   });
 }
 
-if (navToggle && shell) {
+if (navToggle && appShell) {
   navToggle.addEventListener("click", () => {
-    const isOpen = shell.classList.toggle("nav-open");
+    const isOpen = appShell.classList.toggle("nav-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
     navToggle.textContent = isOpen ? "Close" : "Menu";
   });
 }
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && shell?.classList.contains("nav-open")) {
-    shell.classList.remove("nav-open");
+  if (event.key === "Escape" && appShell?.classList.contains("nav-open")) {
+    appShell.classList.remove("nav-open");
     navToggle?.setAttribute("aria-expanded", "false");
+
     if (navToggle) {
       navToggle.textContent = "Menu";
     }

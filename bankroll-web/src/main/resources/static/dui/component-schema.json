@@ -1,0 +1,26 @@
+{
+  "version": "1",
+  "allowedComponents": {
+    "landingHero": ["title", "body"],
+    "section": ["title", "body"],
+    "metricCard": ["title", "body"],
+    "warningBlock": ["title", "body", "level"],
+    "profileForm": [],
+    "planForm": [],
+    "activityForm": [],
+    "dashboardSummary": ["title", "period", "status", "limit", "spent", "remaining"],
+    "progressBar": ["label", "value", "level"],
+    "timeline": ["title", "items"],
+    "statStrip": ["title", "items"],
+    "textBlock": ["body"],
+    "fallback": ["title", "body"]
+  },
+  "forbiddenProperties": [
+    "chainOfThought",
+    "reasoning",
+    "trace",
+    "toolTrace",
+    "internalPrompt"
+  ],
+  "allowedLevels": ["safe", "warning", "danger", "neutral"]
+}

@@ -12,6 +12,12 @@
 
   <nav class="app-nav" aria-label="Primary">
     <a th:href="@{/}"
+       th:classappend="${activeNav == 'landing'} ? ' is-active' : ''"
+       th:attr="aria-current=${activeNav == 'landing'} ? 'page' : null">
+      <span>Landing</span>
+      <small>Product overview</small>
+    </a>
+    <a th:href="@{/dashboard}"
        th:classappend="${activeNav == 'dashboard'} ? ' is-active' : ''"
        th:attr="aria-current=${activeNav == 'dashboard'} ? 'page' : null">
       <span>Dashboard</span>
@@ -51,7 +57,7 @@
 
   <section class="sidebar-note">
     <p class="sidebar-note-label">Current phase</p>
-    <p>Shell is live. Domain contracts plug in next without reworking the UI frame.</p>
+    <p>Local web slice is live. Data shown in the panel is safe mock state until use cases land.</p>
   </section>
 </aside>
 </body>
