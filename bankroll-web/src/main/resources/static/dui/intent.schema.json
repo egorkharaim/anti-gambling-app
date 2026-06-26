@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/dui/intent.schema.json",
+  "title": "Bankroll Discipline DUI Intent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "screen", "root"],
+  "properties": {
+    "version": {
+      "const": "1"
+    },
+    "screen": {
+      "type": "string",
+      "enum": ["dashboard", "profile", "plans", "sessions", "calendar", "statistics"]
+    },
+    "root": {
+      "$ref": "#/$defs/component"
+    }
+  },
+  "$defs": {
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "props", "children"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["Stack", "Card", "Text", "Metric", "Badge", "Button", "Alert", "Progress"]
+        },
+        "props": {
+          "type": "object"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/component"
+          },
+          "maxItems": 12
+        }
+      }
+    }
+  }
+}

@@ -11,15 +11,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ShellPageController {
 
-  /** Renders the placeholder dashboard page. */
+  /** Renders the landing page. */
   @GetMapping("/")
+  public String landing(Model model) {
+    populatePage(
+        model,
+        "landing",
+        "Anti Gambling App",
+        "Strict bankroll control",
+        "Plan a weekly or monthly limit in advance, track remaining bankroll, and see clear"
+            + " warnings before impulse takes over.");
+    return "shell/page";
+  }
+
+  /** Renders the dashboard page. */
+  @GetMapping("/dashboard")
   public String dashboard(Model model) {
     populatePage(
         model,
         "dashboard",
         "Discipline Dashboard",
-        "Today at a glance",
-        "A calm command center for limits, warnings, and active session context.");
+        "Current period at a glance",
+        "A calm control panel for the active limit, remaining USD bankroll, and warnings.");
     return "shell/page";
   }
 
@@ -90,6 +103,7 @@ public class ShellPageController {
   private void populatePage(
       Model model, String activeNav, String title, String eyebrow, String description) {
     model.addAttribute("activeNav", activeNav);
+    model.addAttribute("duiScreen", activeNav);
     model.addAttribute("pageTitle", title);
     model.addAttribute("pageEyebrow", eyebrow);
     model.addAttribute("pageDescription", description);

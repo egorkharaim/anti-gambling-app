@@ -19,9 +19,10 @@ class ShellPageControllerTest {
 
   @ParameterizedTest
   @CsvSource({
-    "'/', dashboard, Discipline Dashboard",
-    "'/profile', profile, Financial Profile",
+    "'/', landing, Anti Gambling App",
+    "'/dashboard', dashboard, Discipline Dashboard",
     "'/plans', plans, Bankroll Plans",
+    "'/profile', profile, Financial Profile",
     "'/sessions', sessions, Game Sessions",
     "'/calendar', calendar, Discipline Calendar",
     "'/statistics', statistics, Statistics"
